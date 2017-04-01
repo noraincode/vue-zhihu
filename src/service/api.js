@@ -6,6 +6,9 @@ export default (_this, params) => {
         },
         getThemeList(){
             return _this.$http.get('api/4/themes',{params:params})
+        },
+        getThemeNews(){
+            return _this.$http.get('api/4/theme/:id',{params:params})
         }
     }
 }
