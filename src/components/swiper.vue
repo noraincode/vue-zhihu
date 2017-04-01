@@ -6,8 +6,6 @@
           <p class="slide-title">{{item.title}}</p>
         </swiper-slide>
         <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
-        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
   </div>
 </template>
@@ -25,11 +23,9 @@
         swiperOption: {
           pagination: '.swiper-pagination',
           paginationClickable: true,
-          nextButton: '.swiper-button-next',
-          prevButton: '.swiper-button-prev',
           autoHeight: true,
-          //autoplay: 2500,
-          //autoplayDisableOnInteraction: false,
+          autoplay: 2500,
+          autoplayDisableOnInteraction: false,
           effect: 'fade',
           defaultImg: 'http://cdn.gousa.cn/sites/default/files/styles/original_with_watermark/public/kennedy_meadows_0.jpg'
         },

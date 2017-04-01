@@ -1,6 +1,7 @@
 <template>
     <div>
-        <mu-appbar title="Title">
+        <mu-appbar class="top-bar">
+            <p>{{titleName | reTitle}}</p>
             <mu-icon-button @click="toggle(true)" icon='menu' slot="left"/>
             <mu-icon-button icon='expand_more' slot="right"/>
         </mu-appbar>
@@ -36,9 +37,17 @@ export default {
   },
   data(){
       return {
+          titleName: this.$route.name||'Error',
           open: false,
           docked: true,
           themeList: []
+      }
+  },
+  filters:{
+      reTitle(name){
+          if (name=="Home"){
+              return '首页'
+          }
       }
   },
   methods: {
@@ -48,6 +57,7 @@ export default {
       if(flag) {
           this.getThemeList()
       }
+      console.log(this.$route.name)
     },
     getThemeList(){
       API(this).getThemeList().then((res) => {
@@ -59,3 +69,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.top-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+</style>
